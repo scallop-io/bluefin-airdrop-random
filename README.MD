@@ -3,7 +3,7 @@
 ### Event Rule
 
 - A snapshot will be taken June 24st.
-- User with > $100 
+- User with borrow > $100.
 
 ### Randomization Logic
 
