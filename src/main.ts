@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import { generateAddresses } from './utils/addressGenerator';
 dotenv.config();
 
-const isTest = true;
+const isTest = false;
 const folderName = isTest ? 'test_result' : 'result';
 const PICKED_ROUND = 4126285;
 
@@ -19,7 +19,7 @@ async function main() {
   if(isTest) {
     addresses = generateAddresses(2000);
   } else {
-    addresses = JSON.parse(fs.readFileSync('eligible-users.json', 'utf-8')) as string[];
+    addresses = JSON.parse(fs.readFileSync('eligible-user.json', 'utf-8')) as string[];
   }
   await generateHashResults(addresses, PICKED_ROUND);
   sortHashResult();
