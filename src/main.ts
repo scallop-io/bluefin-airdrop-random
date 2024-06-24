@@ -8,17 +8,18 @@ dotenv.config();
 
 const isTest = true;
 const folderName = isTest ? 'test_result' : 'result';
-const PICKED_ROUND = 4112245;
+const PICKED_ROUND = 4126285;
 
 
 async function main() {
-  // await getFutureDrandRound();
   if(!fs.existsSync(folderName)) {
     fs.mkdirSync(folderName, { recursive: true });
   }
   let addresses: string[] = [];
   if(isTest) {
     addresses = generateAddresses(2000);
+  } else {
+    addresses = JSON.parse(fs.readFileSync('eligible-users.json', 'utf-8')) as string[];
   }
   await generateHashResults(addresses, PICKED_ROUND);
   sortHashResult();

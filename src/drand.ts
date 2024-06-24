@@ -51,7 +51,7 @@ export const getRemainingRoundTime = (round: number) => {
 
 export const getFutureDrandRound = async () => {
   const currentTime = new Date().getTime();
-  const pickTime = new Date("2024-06-25").setHours(9, 0, 0, 0);
+  const pickTime = new Date("2024-06-24").setHours(16, 0, 0, 0);
   console.log(`Current time: `, (pickTime - currentTime) / 1000 / 30);
   const round = Math.floor((pickTime - currentTime) / 1000 / 30);
   const latestRound = await getLatestDrandRound();
